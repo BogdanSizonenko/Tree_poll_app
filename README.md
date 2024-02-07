@@ -40,14 +40,14 @@ Choice - модель ответов:
 - votes - кол-во ответов на данное поле
 
 
-Файл .env : 
-SECRET_KEY="ключ Django"
-DEBUG=1
-ALLOWED_HOSTS='localhost 127.0.0.1'
+### Файл .env : 
+-SECRET_KEY="ключ Django"
+-DEBUG=1
+-ALLOWED_HOSTS='localhost 127.0.0.1'
 
-POSTGRES_NAME='postgres'
-POSTGRES_USER='postgres'
-POSTGRES_PASSWORD='postgres_password'
-POSTGRES_HOST='localhost'
-POSGTRES_PORT='5432'
+-POSTGRES_NAME='postgres'
+-POSTGRES_USER='postgres'
+-POSTGRES_PASSWORD='postgres_password'
+-POSTGRES_HOST='localhost'
+-POSGTRES_PORT='5432'
    
