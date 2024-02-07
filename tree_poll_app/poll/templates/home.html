@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2 class="text-center">Доступные опросы</h2>
+        <div style="margin-top: 20px;">
+            {% for test in tests %}
+                <ul>
+                    <a href="tests/{{ test.id }}" >
+                        <h5>{{ test.title }}</h5>
+                    </a>
+                </ul>
+            {% endfor %}
+        </div>
+	</div>
+
+{% endblock %}

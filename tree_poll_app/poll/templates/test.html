@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3 class="text-center"> {{ test.title }} </h3>
+        <div> 
+            {% for quest in test.questions.all %}   
+                {% if quest.display is True %}
+                <form hx-post="post">
+                    {% csrf_token %}
+                    <ul><a>{{ quest.question_text }}</a></ul>
+                    {% for choice in quest.choices.all %}
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="number_choice" id="number_choice" value="{{ test.id }} {{ quest.id }} {{ choice.number_choice }}">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            {{ choice.choice_text }}
+                        </label>
+                    </div>
+                    {% endfor %}
+                    <input type="submit" value="Ответить" class="btn btn-primary mb-3"/>
+                </form>
+                {% endif %}
+            {% endfor %}
+            <a href="statistic/{{ test.id }}"><button type="submit" class="btn btn-primary mb-3">К результатам!</button></a>
+        </div>
+{% endblock %}

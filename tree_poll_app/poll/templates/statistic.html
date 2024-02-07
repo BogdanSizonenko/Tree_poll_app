@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <h1 class="text-center">Результаты</h1>
+        <h3 class="text-center"> {{ total_question.0.test }} </h3>
+        <h5 class="text-center">(Общее кол-во ответивших {{ total_question.0.question_sum_votes }})</h5>
+    {% for quest in total_question %}
+        <div>
+            <div>
+                <ul>
+                    <dt>{{ quest.rank }} место : {{ quest.question_text }}
+                        <div>
+                            {{ quest.question_sum_votes }}/{{ quest.percent }}%
+                        </div>
+                    </dt>
+                </ul>
+            </div>
+            {% for choice in total_choice %}
+                {% if choice.question_id is quest.id %}
+                <ul>
+                    {{ choice.choice_text}}
+                    <div>
+                        {{ choice.votes }}/{{ choice.percent }}%
+                    </div>
+                </ul>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endblock %}

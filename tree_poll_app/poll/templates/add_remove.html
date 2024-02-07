@@ -1,0 +1,20 @@
+            
+    <ul><a>{{ question.question_text }}</a></ul>
+    <p>Ваш ответ {{ answer.choice_text}} принят!</p>
+
+            
+    {% for quest in child_quests %}
+        <form hx-post="post">
+            {% csrf_token %}
+            <ul><a>{{ quest.question_text }}</a></ul>
+            {% for choice in quest.choices.all %}
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="number_choice" id="flexRadioDefault1" value="{{ test.id }} {{ quest.id }} {{ choice.number_choice }}">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        {{ choice.choice_text }}
+                    </label>
+                </div>
+            {% endfor %}
+            <input type="submit" value="Ответить" class="btn btn-primary mb-3"/>
+        </form>
+    {% endfor %}
